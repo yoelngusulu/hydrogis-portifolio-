@@ -3,17 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Professional GIS and Hydrology specialist offering spatial analysis, hydrological modeling, remote sensing, and environmental mapping across Tanzania." />
-    <meta name="keywords" content="GIS, Hydrology, Remote Sensing, Tanzania, Spatial Analysis, Cartography, Yoeln" />
-    <meta property="og:title" content="Yoeln HydroGIS | Professional GIS & Hydrology Consultant" />
-    <meta property="og:description" content="Spatial analysis, hydrological modeling, and environmental mapping expertise." />
-    <meta property="og:type" content="website" />
-    <title>Yoeln HydroGIS | GIS & Hydrology Consultant</title>
-    
+    <title>Yoeln HdroGIS Portfolio & Data Hub</title>
     <style>
       :root {
         color-scheme: dark;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         background: #06121b;
         color: #fff;
       }
@@ -30,7 +24,6 @@
         margin: 0;
         min-width: 320px;
         background: #06121b;
-        line-height: 1.6;
       }
 
       a {
@@ -38,19 +31,75 @@
         text-decoration: none;
       }
 
+      button,
+      input {
+        font: inherit;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(6, 18, 27, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        color: #f8fafc;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand span {
+        color: #5eead4;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: #cbd5e1;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .nav-links a:hover {
+        color: #5eead4;
+      }
+
       .section {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 80px 24px;
+        opacity: 0;
+        transform: translateY(18px);
+        animation: fadeInUp 0.75s ease-out forwards;
       }
 
       .section:last-child {
         border-bottom: 0;
       }
 
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       .container {
         width: min(1120px, 100%);
         margin: 0 auto;
-        padding: 0 16px;
       }
 
       .grid-hero,
@@ -62,9 +111,9 @@
       .eyebrow {
         margin: 0 0 16px;
         color: #5eead4;
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.15em;
+        font-size: 14px;
+        font-weight: 750;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
       }
 
@@ -78,41 +127,36 @@
       h1 {
         margin-bottom: 24px;
         font-size: clamp(40px, 8vw, 72px);
-        line-height: 1.1;
-        font-weight: 800;
+        line-height: 1.08;
       }
 
       h2 {
         margin-bottom: 24px;
-        font-size: clamp(28px, 5vw, 44px);
-        line-height: 1.2;
-        font-weight: 700;
+        font-size: clamp(30px, 4vw, 42px);
+        line-height: 1.16;
       }
 
       h3 {
         margin-bottom: 12px;
-        font-size: 22px;
         color: #f8fafc;
-        font-weight: 700;
+        font-size: 22px;
       }
 
       .accent {
         color: #5eead4;
-        font-weight: 800;
       }
 
       .lead {
-        max-width: 640px;
+        max-width: 660px;
         margin-bottom: 32px;
         color: #cbd5e1;
         font-size: 18px;
-        line-height: 1.8;
+        line-height: 1.75;
       }
 
       .muted {
         color: #94a3b8;
-        line-height: 1.8;
-        font-size: 15px;
+        line-height: 1.75;
       }
 
       .actions,
@@ -133,131 +177,96 @@
         min-height: 48px;
         gap: 8px;
         border-radius: 8px;
-        border: 2px solid rgba(255, 255, 255, 0.15);
-        padding: 12px 28px;
-        font-weight: 700;
-        font-size: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: transparent;
+        padding: 12px 22px;
+        color: #f8fafc;
+        font-weight: 750;
         cursor: pointer;
-        transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
       }
 
       .btn.primary {
         border-color: #5eead4;
-        background: linear-gradient(135deg, #5eead4 0%, #2dd9c4 100%);
+        background: #5eead4;
         color: #06121b;
-        box-shadow: 0 12px 24px rgba(94, 234, 212, 0.2);
+        box-shadow: 0 18px 36px rgba(94, 234, 212, 0.15);
       }
 
       .btn:hover {
         border-color: #5eead4;
-        color: #5eead4;
-        transform: translateY(-3px);
+        color: #99f6e4;
+        transform: translateY(-2px);
       }
 
       .btn.primary:hover {
-        background: linear-gradient(135deg, #99f6e4 0%, #5eead4 100%);
+        background: #99f6e4;
         color: #06121b;
-        box-shadow: 0 16px 32px rgba(94, 234, 212, 0.3);
       }
 
       .panel,
-      .card {
+      .card,
+      .skill {
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
+        overflow: hidden;
+        transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
       }
 
       .panel {
-        padding: 24px;
+        padding: 20px;
         box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
       }
 
       .mini-panel {
-        margin-top: 16px;
+        margin-top: 14px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
-        background: rgba(2, 6, 23, 0.7);
-        padding: 18px;
+        background: rgba(2, 6, 23, 0.62);
+        padding: 16px;
       }
 
       .mini-panel h3 {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         color: #5eead4;
-        font-size: 16px;
+        font-size: 17px;
       }
 
       .mini-panel p {
         margin-bottom: 0;
-        color: #cbd5e1;
+        color: #94a3b8;
         font-size: 14px;
-        line-height: 1.6;
+        line-height: 1.55;
       }
 
       .map-preview {
         position: relative;
         display: flex;
-        height: 200px;
+        height: 210px;
         overflow: hidden;
         align-items: center;
         justify-content: center;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
-        background:
-          radial-gradient(circle at 35% 40%, rgba(94, 234, 212, 0.2), transparent 35%),
-          radial-gradient(circle at 70% 70%, rgba(250, 204, 21, 0.15), transparent 30%),
-          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          #0b1f2b;
-        background-size: auto, auto, 20px 20px, 20px 20px, auto;
+        background-color: #0b1f2b;
       }
 
-      .map-preview::before,
+      .map-preview img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.82;
+        transition: transform 240ms ease, opacity 240ms ease;
+      }
+
       .map-preview::after {
         content: "";
         position: absolute;
-        width: 150%;
-        height: 100px;
-        border-top: 2px solid rgba(94, 234, 212, 0.3);
-        border-radius: 50%;
-        transform: rotate(-15deg);
-      }
-
-      .map-preview::after {
-        border-top: 3px dashed rgba(94, 234, 212, 0.2);
-        opacity: 0.7;
-        transform: translateY(35px) rotate(-8deg);
-      }
-
-      .map-preview.hydro-bg {
-        background: linear-gradient(rgba(6, 18, 27, 0.4), rgba(6, 18, 27, 0.5)), url('images/Hydrocn.png');
-        background-size: cover;
-        background-position: center;
-      }
-
-      .map-preview.lulc-bg {
-        background: linear-gradient(rgba(6, 18, 27, 0.4), rgba(6, 18, 27, 0.5)), url('images/LULC.png');
-        background-size: cover;
-        background-position: center;
-      }
-
-      .map-preview.hydro-bg::before, .map-preview.hydro-bg::after,
-      .map-preview.lulc-bg::before, .map-preview.lulc-bg::after {
-        display: none;
-      }
-
-      .map-label {
-        position: relative;
-        z-index: 1;
-        border: 1.5px solid rgba(94, 234, 212, 0.4);
-        border-radius: 999px;
-        background: rgba(6, 18, 27, 0.95);
-        padding: 10px 20px;
-        color: #f8fafc;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+        inset: 0;
+        background: linear-gradient(180deg, rgba(6, 18, 27, 0.08), rgba(6, 18, 27, 0.58));
       }
 
       .skills-grid,
@@ -272,30 +281,19 @@
 
       .skill {
         display: flex;
-        min-height: 70px;
+        min-height: 66px;
         align-items: center;
-        padding: 18px;
-        font-weight: 600;
-        font-size: 15px;
+        padding: 16px;
         color: #cbd5e1;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.03);
-        transition: all 200ms ease;
-      }
-
-      .skill:hover {
-        border-color: rgba(94, 234, 212, 0.6);
-        background: rgba(94, 234, 212, 0.08);
-        transform: translateY(-4px);
+        font-size: 15px;
+        font-weight: 650;
       }
 
       .card {
-        padding: 28px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         flex-direction: column;
+        padding: 24px;
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.16);
       }
 
       .card .map-preview {
@@ -306,24 +304,42 @@
         flex-grow: 1;
       }
 
-      .card:hover {
+      .card:hover,
+      .skill:hover {
         border-color: rgba(94, 234, 212, 0.6);
         background: rgba(255, 255, 255, 0.05);
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(94, 234, 212, 0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
       }
 
-      .badge {
+      .card:hover .map-preview img,
+      .panel:hover .map-preview img {
+        transform: scale(1.05);
+        opacity: 0.92;
+      }
+
+      .tag {
         display: inline-block;
-        background: rgba(94, 234, 212, 0.15);
-        color: #5eead4;
-        padding: 6px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 700;
+        align-self: flex-start;
         margin-bottom: 12px;
+        border-radius: 4px;
+        background: rgba(94, 234, 212, 0.15);
+        padding: 4px 10px;
+        color: #5eead4;
+        font-size: 12px;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+      }
+
+      .source {
+        margin: 4px 0 0;
+        color: #cbd5e1;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .source strong {
+        color: #5eead4;
       }
 
       .stats {
@@ -332,9 +348,7 @@
         margin: 0 0 16px;
         color: #5eead4;
         font-size: 13px;
-        font-weight: 700;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-weight: 650;
       }
 
       .center {
@@ -347,117 +361,25 @@
         margin-top: 16px;
         display: inline-flex;
         align-items: center;
-        font-weight: 700;
         color: #5eead4;
         font-size: 15px;
-        transition: all 200ms ease;
+        font-weight: 700;
       }
 
       .card-link:hover {
         color: #99f6e4;
-        gap: 6px;
-      }
-
-      /* STYLE MPYA KWA AJILI YA CTA NDOGO NDANI YA KADI */
-      .card-cta-group {
-        margin-top: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        padding-top: 12px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .card-cta-btn {
-        font-size: 12px;
-        font-weight: 600;
-        padding: 6px 12px;
-        border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        transition: all 200ms ease;
-      }
-
-      .card-cta-btn:hover {
-        border-color: #5eead4;
-        color: #5eead4;
-      }
-
-      .card-cta-btn.whatsapp {
-        background: rgba(94, 234, 212, 0.1);
-        border-color: rgba(94, 234, 212, 0.3);
-        color: #5eead4;
-      }
-
-      .card-cta-btn.whatsapp:hover {
-        background: #5eead4;
-        color: #06121b;
-      }
-
-      .stat-box {
-        text-align: center;
-        padding: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .stat-number {
-        font-size: 32px;
-        font-weight: 800;
-        color: #5eead4;
-      }
-
-      .stat-label {
-        font-size: 14px;
-        color: #94a3b8;
-        margin-top: 8px;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-size: 14px;
-        color: #cbd5e1;
-        font-weight: 600;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 12px 16px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 6px;
-        color: #fff;
-        font-size: 15px;
-        font-family: inherit;
-        transition: all 200ms ease;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        border-color: #5eead4;
-        outline: none;
-        background: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+        text-decoration: underline;
       }
 
       .modal-overlay {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(2, 6, 23, 0.8);
-        backdrop-filter: blur(10px);
+        inset: 0;
+        z-index: 1000;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 1000;
+        background: rgba(2, 6, 23, 0.86);
+        backdrop-filter: blur(8px);
         opacity: 0;
         pointer-events: none;
         transition: opacity 250ms ease;
@@ -469,34 +391,70 @@
       }
 
       .modal-content {
-        background: linear-gradient(135deg, #0e2433 0%, #0a1823 100%);
-        border: 1px solid rgba(94, 234, 212, 0.3);
-        padding: 40px;
-        border-radius: 12px;
-        width: min(480px, 90%);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         position: relative;
+        width: min(440px, calc(100% - 32px));
+        border: 1px solid rgba(94, 234, 212, 0.3);
+        border-radius: 12px;
+        background: #0e2433;
+        padding: 32px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        transform: scale(0.94);
+        transition: transform 250ms ease;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: scale(1);
       }
 
       .close-modal {
         position: absolute;
-        top: 16px;
-        right: 16px;
-        background: none;
-        border: none;
+        top: 14px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
         color: #94a3b8;
-        font-size: 24px;
+        font-size: 26px;
+        line-height: 1;
         cursor: pointer;
-        transition: color 200ms ease;
       }
 
       .close-modal:hover {
-        color: #5eead4;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #cbd5e1;
+        font-size: 14px;
+      }
+
+      .form-group input {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        background: #06121b;
+        padding: 12px;
+        color: #fff;
+        font-size: 15px;
+      }
+
+      .form-group input:focus {
+        border-color: #5eead4;
+        outline: none;
       }
 
       @media (min-width: 768px) {
         .section {
-          padding: 100px 64px;
+          padding: 96px 64px;
         }
 
         .grid-hero {
@@ -515,9 +473,18 @@
         .cards-grid.two-columns {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+      }
 
-        .skills-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+      @media (max-width: 640px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-links {
+          width: 100%;
+          flex-wrap: wrap;
+          gap: 12px;
         }
       }
 
@@ -530,172 +497,136 @@
           grid-template-columns: 1fr;
         }
 
-        .cards-grid.three-columns,
-        .cards-grid.two-columns {
-          grid-template-columns: 1fr;
-        }
-
         .btn {
           width: 100%;
         }
       }
     </style>
   </head>
-
   <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#">Yoeln <span>HdroGIS</span></a>
+        <div class="nav-links">
+          <a href="#data-hub">Data Hub</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
     <main>
       <section class="section">
         <div class="container grid-hero">
           <div>
             <p class="eyebrow">GIS | Hydrology | Remote Sensing</p>
-            <h1>Yoeln <span class="accent">HydroGIS</span></h1>
+            <h1>Yoeln <span class="accent">HdroGIS</span></h1>
             <p class="lead">
-              Professional GIS and Hydrology consultant specializing in spatial analysis, hydrological modeling, remote sensing, and environmental mapping across Tanzania. 
-              Transforming water resources and environmental data into actionable intelligence.
+              Professional GIS and Hydrology Hub showcasing spatial analysis, hydrological modelling, remote sensing, and environmental mapping projects across Tanzania.
             </p>
             <div class="actions">
-              <a class="btn primary" href="#portfolio">View Portfolio &rarr;</a>
-              <a class="btn" href="#contact">Get In Touch</a>
+              <a class="btn primary" href="#data-hub">Download GIS Data -&gt;</a>
+              <a class="btn" href="#portfolio">View Portfolio</a>
             </div>
           </div>
 
           <div class="panel">
-            <div class="map-preview"><span class="map-label">Tanzania Water Intelligence</span></div>
+            <div class="map-preview">
+              <img src="rusle.png" alt="RUSLE model study map" loading="eager" />
+            </div>
             <div class="mini-panel">
               <h3>Hydrological Studies</h3>
-              <p>Watershed delineation, runoff modeling, soil loss estimation, and integrated water resource assessment.</p>
+              <p>Watershed delineation, runoff estimation, soil loss modelling, drought studies, and flood-risk mapping.</p>
             </div>
             <div class="mini-panel">
-              <h3>GIS & Remote Sensing</h3>
-              <p>Professional mapping, spatial analysis, land-use classification, and environmental monitoring workflows.</p>
+              <h3>GIS Mapping & Data</h3>
+              <p>Professional cartographic layouts and free environmental data distribution for research workflows.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" style="background: rgba(94, 234, 212, 0.02);">
+      <section id="data-hub" class="section" style="background: rgba(94, 234, 212, 0.018);">
         <div class="container">
-          <p class="eyebrow">Professional Experience</p>
-          <h2>Core Expertise & Capabilities</h2>
-          
+          <p class="eyebrow">Geospatial Open Data</p>
+          <h2>Free GIS & Hydrology Data Hub</h2>
+          <p class="muted" style="max-width: 720px; margin-bottom: 32px;">
+            Download optimized, cleaned GIS datasets ready for mapping tasks and water resource research workflows across Tanzania.
+            <span class="accent">Free account registration is required before downloads open.</span>
+          </p>
+
           <div class="cards-grid three-columns">
-            <div class="stat-box">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">8+</div>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">20+</div>
-              <div class="stat-label">Happy Clients</div>
-            </div>
+            <article class="card">
+              <span class="tag">Shapefile / Geodatabase</span>
+              <h3>Tanzania Watershed Boundaries</h3>
+              <p class="muted">Complete vector boundary datasets covering primary hydrographic river basins within Tanzania.</p>
+              <p class="source"><strong>Source:</strong> Tanzania basin authorities / cleaned public hydrographic layers.</p>
+              <button class="btn primary download-trigger" type="button" data-file="Tanzania Watershed Boundaries" style="margin-top: 16px; min-height: 42px;">Download Data</button>
+            </article>
+
+            <article class="card">
+              <span class="tag">Raster / DEM</span>
+              <h3>30m Resolution DEM (SRTM)</h3>
+              <p class="muted">Processed Digital Elevation Model for watershed extraction, slope evaluation, and contour generation.</p>
+              <p class="source"><strong>Source:</strong> NASA SRTM 30m DEM, processed for Tanzania workflows.</p>
+              <button class="btn primary download-trigger" type="button" data-file="30m Resolution DEM" style="margin-top: 16px; min-height: 42px;">Download Data</button>
+            </article>
+
+            <article class="card">
+              <span class="tag">Shapefile / Vector</span>
+              <h3>Tanzania Rivers & Waterbodies</h3>
+              <p class="muted">Detailed hydrographic features for rivers, lakes, wetlands, and major surface water reservoirs.</p>
+              <p class="source"><strong>Source:</strong> Public hydrography datasets refined for GIS mapping.</p>
+              <button class="btn primary download-trigger" type="button" data-file="Tanzania Rivers & Waterbodies" style="margin-top: 16px; min-height: 42px;">Download Data</button>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section id="about" class="section">
         <div class="container grid-about">
           <div>
-            <p class="eyebrow">About Me</p>
+            <p class="eyebrow">About</p>
             <h2>GIS & Hydrology Professional</h2>
             <p class="muted">
-              With over 8 years of hands-on experience in geospatial analysis and water resources management, I deliver technical solutions that support infrastructure planning, environmental assessment, and water security initiatives across East Africa.
+              Yoeln HdroGIS focuses on engineering spatial analysis, environmental GIS, remote sensing applications, and complex hydrological studies.
             </p>
             <p class="muted">
-              My mission is to bridge the gap between complex spatial data and actionable insights, helping organizations make informed decisions through advanced GIS applications and hydrological modeling.
+              The target is to build a premier geospatial and water resources consultancy supporting infrastructure planning and sustainable environmental frameworks.
             </p>
-            <div style="margin-top: 24px;">
-              <a class="btn" href="#" download>Download CV (PDF)</a>
-            </div>
           </div>
 
-          <div>
-            <div class="skills-grid">
-              <div class="skill">ArcGIS Pro</div>
-              <div class="skill">Remote Sensing (Sentinel, Landsat)</div>
-              <div class="skill">Hydrological Modeling (HEC-HMS, SWAT)</div>
-              <div class="skill">Spatial Data Analysis</div>
-              <div class="skill">Cartographic Design</div>
-              <div class="skill">Geodatabase Management</div>
-              <div class="skill">Python/R for GIS</div>
-              <div class="skill">Climate Data Analysis</div>
-            </div>
+          <div class="skills-grid">
+            <div class="skill">ArcGIS Pro & Spatial Analyst</div>
+            <div class="skill">QGIS</div>
+            <div class="skill">Remote Sensing & Imagery</div>
+            <div class="skill">Hydrological Modeling</div>
+            <div class="skill">Spatial Data Science</div>
+            <div class="skill">Cartographic Design</div>
           </div>
         </div>
       </section>
 
       <section id="portfolio" class="section">
         <div class="container">
-          <p class="eyebrow">Recent Work</p>
+          <p class="eyebrow">Portfolio</p>
           <h2>Featured Projects</h2>
-          <p class="muted" style="max-width: 640px; margin-bottom: 40px;">
-            Selected projects showcasing expertise in hydrological modeling, environmental assessment, and spatial analysis solutions.
-          </p>
-
           <div class="cards-grid two-columns">
             <article class="card">
-              <span class="badge">Hydrological Modeling</span>
-              <div class="map-preview hydro-bg"><span class="map-label">Watershed Analysis</span></div>
-              <h3>Watershed Delineation & Runoff Modeling</h3>
-              <p class="muted">Comprehensive watershed analysis including drainage extraction, runoff estimation using hydrological models, and flood-risk assessment for infrastructure planning.</p>
-              <div class="stats">
-                <span>Client: Water Authority</span>
-                <span>2023-2024</span>
+              <div class="map-preview">
+                <img src="cn.png" alt="CN-based hydrological modeling map" loading="lazy" />
               </div>
-              <a class="card-link" href="#">View Case Study &rarr;</a>
-              
-              <div class="card-cta-group">
-                <a class="card-cta-btn whatsapp" href="https://wa.me/255682647397?text=Hello%20Joel,%20I%20am%20interested%20in%20your%20Hydrological%20Modeling%20services." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a class="card-cta-btn" href="tel:+255682647397">Call</a>
-                <a class="card-cta-btn" href="mailto:joelngusulu97@gmail.com?subject=Inquiry%20about%20Hydrological%20Modeling">Email</a>
-              </div>
+              <h3>Hydrological Modelling</h3>
+              <p class="muted">Watershed extraction, runoff hydrographs, drainage basin extraction, and flood-risk zoning structures.</p>
             </article>
 
             <article class="card">
-              <span class="badge">Environmental GIS</span>
-              <div class="map-preview lulc-bg"><span class="map-label">Land Use Analysis</span></div>
-              <h3>Multi-Temporal LULC Change Detection</h3>
-              <p class="muted">Time-series land use/land cover analysis using satellite imagery to track environmental changes, deforestation trends, and urbanization patterns over 10-year period.</p>
-              <div class="stats">
-                <span>Client: Environmental NGO</span>
-                <span>2023</span>
+              <div class="map-preview">
+                <img src="lulc.png" alt="Land use and land cover classification map" loading="lazy" />
               </div>
-              <a class="card-link" href="#">View Case Study &rarr;</a>
-              
-              <div class="card-cta-group">
-                <a class="card-cta-btn whatsapp" href="https://wa.me/255682647397?text=Hello%20Joel,%20I%20am%20interested%20in%20your%20Environmental%20GIS%20services." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a class="card-cta-btn" href="tel:+255682647397">Call</a>
-                <a class="card-cta-btn" href="mailto:joelngusulu97@gmail.com?subject=Inquiry%20about%20Environmental%20GIS">Email</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" style="background: rgba(94, 234, 212, 0.02);">
-        <div class="container">
-          <div class="center">
-            <p class="eyebrow">What I Offer</p>
-            <h2>Professional Services</h2>
-            <p class="muted">Comprehensive geospatial and water resources solutions tailored to your project requirements.</p>
-          </div>
-
-          <div class="cards-grid three-columns">
-            <article class="card">
-              <h3>Hydrological Studies</h3>
-              <p class="muted">Watershed analysis, runoff estimation, flood and drought modeling, groundwater assessment, and water balance studies.</p>
-            </article>
-
-            <article class="card">
-              <h3>GIS Mapping & Analysis</h3>
-              <p class="muted">Professional cartography, spatial analysis workflows, feature extraction, site suitability analysis, and geospatial database design.</p>
-            </article>
-
-            <article class="card">
-              <h3>Remote Sensing</h3>
-              <p class="muted">Satellite image processing, LULC classification, change detection, vegetation monitoring, and environmental impact assessment.</p>
+              <h3>Environmental GIS Analysis</h3>
+              <p class="muted">Multi-temporal Land Use/Land Cover change, environmental impact evaluation mapping, and analytical workflows.</p>
             </article>
           </div>
         </div>
@@ -704,31 +635,30 @@
       <section class="section">
         <div class="container">
           <div class="center">
-            <p class="eyebrow">Latest Insights</p>
-            <h2>GIS & Hydrology News</h2>
-            <p class="muted">Latest trends, tools, and breakthroughs in geospatial technology and water resource management.</p>
+            <p class="eyebrow">LinkedIn Highlights</p>
+            <h2>Professional Updates</h2>
+            <p class="muted">Selected GIS, Hydrology, and Environmental posts can be linked here while the live feed is being prepared.</p>
           </div>
 
-          <div class="cards-grid three-columns">
+          <div class="cards-grid two-columns">
             <article class="card">
-              <span class="badge">Technology</span>
-              <h3>AI-Powered Feature Extraction in ArcGIS Pro</h3>
-              <p class="muted">Discover how machine learning automates building detection, road extraction, and land cover classification in minutes instead of hours.</p>
-              <a class="card-link" href="#">Read Article &rarr;</a>
+              <div class="map-preview">
+                <img src="rusle.png" alt="LinkedIn preview for GIS and hydrology content" loading="lazy" />
+              </div>
+              <div class="stats"><span>Portfolio Update</span><span>LinkedIn</span></div>
+              <h3>GIS & Hydrology Insight Post</h3>
+              <p class="muted">Educational and professional GIS content highlighting technical workflows, mapping outputs, and hydrological analysis.</p>
+              <a class="card-link" href="https://www.linkedin.com/in/yoel-ngusulu-66748a1b6" target="_blank" rel="noopener noreferrer">View on LinkedIn -&gt;</a>
             </article>
 
             <article class="card">
-              <span class="badge">Climate Change</span>
-              <h3>Satellite Monitoring of Global Aquifer Depletion</h3>
-              <p class="muted">Remote sensing reveals critical groundwater depletion patterns. Learn how satellite data supports sustainable water resource management decisions.</p>
-              <a class="card-link" href="#">Read Article &rarr;</a>
-            </article>
-
-            <article class="card">
-              <span class="badge">Water Security</span>
-              <h3>Smart Hydrological Networks in Africa</h3>
-              <p class="muted">Advanced telemetry systems provide real-time river discharge monitoring, enabling rapid flood and drought response across the continent.</p>
-              <a class="card-link" href="#">Read Article &rarr;</a>
+              <div class="map-preview">
+                <img src="lulc.png" alt="LinkedIn preview for environmental GIS analysis" loading="lazy" />
+              </div>
+              <div class="stats"><span>Project Share</span><span>LinkedIn</span></div>
+              <h3>Environmental GIS Analysis</h3>
+              <p class="muted">Technical environmental GIS workflows and mapping outputs shared with the professional geospatial community.</p>
+              <a class="card-link" href="https://www.linkedin.com/in/yoel-ngusulu-66748a1b6" target="_blank" rel="noopener noreferrer">View on LinkedIn -&gt;</a>
             </article>
           </div>
         </div>
@@ -736,96 +666,144 @@
 
       <section id="contact" class="section">
         <div class="container center">
-          <p class="eyebrow">Get Started</p>
+          <p class="eyebrow">Contact</p>
           <h2>Let's Work Together</h2>
           <p class="muted">
-            Available for contract work, consultancies, technical assessments, and collaborative projects in GIS, hydrology, and environmental analysis.
+            Available for GIS analysis, hydrological studies, mapping projects, environmental spatial analysis, and geospatial consultancy.
           </p>
-          
           <div class="contact-actions">
-            <a class="btn primary" href="https://wa.me/255682647397" target="_blank" rel="noopener noreferrer">WhatsApp Message &rarr;</a>
-            <a class="btn" href="tel:+255682647397">Call: +255 68 264 7397</a>
+            <a class="btn primary" href="https://wa.me/255682647397" target="_blank" rel="noopener noreferrer">WhatsApp Contact -&gt;</a>
+            <a class="btn" href="tel:+255682647397">Call Now</a>
+            <a class="btn" href="https://www.linkedin.com/in/yoel-ngusulu-66748a1b6" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
           </div>
-
-          <p class="muted" style="margin-top: 32px; font-size: 14px;">
-            Email: <span class="accent">joelngusulu97@gmail.com</span> | LinkedIn: <a href="https://www.linkedin.com/in/yoel-ngusulu-66748a1b6" target="_blank" style="color: #5eead4;">@yoel-ngusulu</a>
-          </p>
         </div>
       </section>
     </main>
 
-    <div class="modal-overlay" id="contactModal">
-      <div class="modal-content">
-        <button class="close-modal" id="closeModalBtn">&times;</button>
-        <h3 style="color: #5eead4; margin-bottom: 8px;">Send Me a Message</h3>
-        <p class="muted" style="font-size: 14px; margin-bottom: 24px;">I'll get back to you within 24 hours.</p>
-        
-        <form id="contactForm" onsubmit="handleContactForm(event)">
+    <div class="modal-overlay" id="signUpModal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="close-modal" id="closeModalBtn" type="button" aria-label="Close sign up form">&times;</button>
+        <h3 id="modalTitle" style="color: #5eead4; margin-bottom: 8px;">Create Free Account</h3>
+        <p class="muted" style="font-size: 14px; margin-bottom: 24px;">Register below to unlock the selected geospatial download.</p>
+
+        <form id="signUpForm">
           <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" required placeholder="Your Name">
+            <label for="username">Full Name</label>
+            <input type="text" id="username" required placeholder="e.g., Yoel Ngusulu" autocomplete="name" />
           </div>
           <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" required placeholder="your@email.com">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="name@company.com" autocomplete="email" />
           </div>
           <div class="form-group">
-            <label for="subject">Project Type</label>
-            <input type="text" id="subject" placeholder="e.g., Hydrological Study, GIS Mapping">
+            <label for="profession">Profession / Field</label>
+            <input type="text" id="profession" placeholder="e.g., Hydrologist, GIS Specialist, Student" />
           </div>
-          <div class="form-group">
-            <label for="message">Message *</label>
-            <textarea id="message" required placeholder="Tell me about your project..." rows="4"></textarea>
-          </div>
-          <button type="submit" class="btn primary" style="width: 100%; margin-top: 10px;">Send Message</button>
+          <button type="submit" class="btn primary" style="width: 100%; margin-top: 10px;">Complete Registration</button>
         </form>
       </div>
     </div>
 
     <script>
-      // Modal functionality
-      const contactModal = document.getElementById('contactModal');
-      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modal = document.getElementById("signUpModal");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      const signUpForm = document.getElementById("signUpForm");
+      const downloadButtons = document.querySelectorAll(".download-trigger");
 
-      closeModalBtn.addEventListener('click', () => {
-        contactModal.classList.remove('active');
+      const datasets = {
+        "Tanzania Watershed Boundaries": {
+          downloadUrl: "",
+          sourceUrl: ""
+        },
+        "30m Resolution DEM": {
+          downloadUrl: "",
+          sourceUrl: "https://www2.jpl.nasa.gov/srtm/"
+        },
+        "Tanzania Rivers & Waterbodies": {
+          downloadUrl: "",
+          sourceUrl: ""
+        }
+      };
+
+      let selectedDataset = "";
+      let isUserRegistered = localStorage.getItem("yoelnHdroGISRegistered") === "true";
+
+      function openModal(datasetName) {
+        selectedDataset = datasetName;
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.getElementById("username").focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      function markDownloadsReady() {
+        downloadButtons.forEach((button) => {
+          button.textContent = "Download Ready";
+          button.style.borderColor = "#22c55e";
+        });
+      }
+
+      function startDownload(datasetName) {
+        const dataset = datasets[datasetName];
+
+        if (dataset && dataset.downloadUrl) {
+          window.open(dataset.downloadUrl, "_blank", "noopener,noreferrer");
+          return;
+        }
+
+        alert(datasetName + " registration is complete. Add the real downloadUrl in the datasets object after uploading your GIS files.");
+      }
+
+      if (isUserRegistered) {
+        markDownloadsReady();
+      }
+
+      downloadButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const datasetName = button.dataset.file || "GIS dataset";
+
+          if (!isUserRegistered) {
+            openModal(datasetName);
+            return;
+          }
+
+          startDownload(datasetName);
+        });
       });
 
-      contactModal.addEventListener('click', (e) => {
-        if (e.target === contactModal) {
-          contactModal.classList.remove('active');
+      closeModalBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
         }
       });
 
-      function handleContactForm(event) {
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+      signUpForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
 
-        // Construct WhatsApp message
-        const whatsappMessage = `Hello! My name is ${name}. Email: ${email}. Project: ${subject}. Message: ${message}`;
-        const whatsappURL = `https://wa.me/255682647397?text=${encodeURIComponent(whatsappMessage)}`;
+        const name = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
 
-        window.open(whatsappURL, '_blank');
-        
-        contactModal.classList.remove('active');
-        document.getElementById('contactForm').reset();
-      }
+        if (!name || !email) {
+          return;
+        }
 
-      // Smooth scroll for navigation
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const href = this.getAttribute('href');
-          if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        });
+        isUserRegistered = true;
+        localStorage.setItem("yoelnHdroGISRegistered", "true");
+        closeModal();
+        markDownloadsReady();
+        startDownload(selectedDataset || "GIS dataset");
       });
     </script>
   </body>
