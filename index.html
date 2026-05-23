@@ -229,7 +229,6 @@
         transform: translateY(35px) rotate(-8deg);
       }
 
-      /* MABADILIKO HAPA: Tumeongeza style za kadi zenye picha halisi kwa nyuma */
       .map-preview.hydro-bg {
         background: linear-gradient(rgba(6, 18, 27, 0.4), rgba(6, 18, 27, 0.5)), url('images/Hydrocn.png');
         background-size: cover;
@@ -242,7 +241,6 @@
         background-position: center;
       }
 
-      /* Tunatoa ile mistari ya gridi ya uwongo kama picha ipo kwa nyuma */
       .map-preview.hydro-bg::before, .map-preview.hydro-bg::after,
       .map-preview.lulc-bg::before, .map-preview.lulc-bg::after {
         display: none;
@@ -358,6 +356,41 @@
       .card-link:hover {
         color: #99f6e4;
         gap: 6px;
+      }
+
+      /* STYLE MPYA KWA AJILI YA CTA NDOGO NDANI YA KADI */
+      .card-cta-group {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .card-cta-btn {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 200ms ease;
+      }
+
+      .card-cta-btn:hover {
+        border-color: #5eead4;
+        color: #5eead4;
+      }
+
+      .card-cta-btn.whatsapp {
+        background: rgba(94, 234, 212, 0.1);
+        border-color: rgba(94, 234, 212, 0.3);
+        color: #5eead4;
+      }
+
+      .card-cta-btn.whatsapp:hover {
+        background: #5eead4;
+        color: #06121b;
       }
 
       .stat-box {
@@ -530,7 +563,7 @@
             <div class="map-preview"><span class="map-label">Tanzania Water Intelligence</span></div>
             <div class="mini-panel">
               <h3>Hydrological Studies</h3>
-              <p>Watershed delineation, runoff modelling, soil loss estimation, and integrated water resource assessment.</p>
+              <p>Watershed delineation, runoff modeling, soil loss estimation, and integrated water resource assessment.</p>
             </div>
             <div class="mini-panel">
               <h3>GIS & Remote Sensing</h3>
@@ -568,10 +601,10 @@
             <p class="eyebrow">About Me</p>
             <h2>GIS & Hydrology Professional</h2>
             <p class="muted">
-              With over 5 years of hands-on experience in geospatial analysis and water resources management, I deliver technical solutions that support infrastructure planning, environmental assessment, and water security initiatives across Tanzania.
+              With over 8 years of hands-on experience in geospatial analysis and water resources management, I deliver technical solutions that support infrastructure planning, environmental assessment, and water security initiatives across East Africa.
             </p>
             <p class="muted">
-              My mission is to bridge the gap between complex spatial data and actionable insights, helping organisations make informed decisions through advanced GIS applications and hydrological modelling.
+              My mission is to bridge the gap between complex spatial data and actionable insights, helping organizations make informed decisions through advanced GIS applications and hydrological modeling.
             </p>
             <div style="margin-top: 24px;">
               <a class="btn" href="#" download>Download CV (PDF)</a>
@@ -612,6 +645,12 @@
                 <span>2023-2024</span>
               </div>
               <a class="card-link" href="#">View Case Study &rarr;</a>
+              
+              <div class="card-cta-group">
+                <a class="card-cta-btn whatsapp" href="https://wa.me/255682647397?text=Hello%20Joel,%20I%20am%20interested%20in%20your%20Hydrological%20Modeling%20services." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="card-cta-btn" href="tel:+255682647397">Call</a>
+                <a class="card-cta-btn" href="mailto:joelngusulu97@gmail.com?subject=Inquiry%20about%20Hydrological%20Modeling">Email</a>
+              </div>
             </article>
 
             <article class="card">
@@ -624,6 +663,12 @@
                 <span>2023</span>
               </div>
               <a class="card-link" href="#">View Case Study &rarr;</a>
+              
+              <div class="card-cta-group">
+                <a class="card-cta-btn whatsapp" href="https://wa.me/255682647397?text=Hello%20Joel,%20I%20am%20interested%20in%20your%20Environmental%20GIS%20services." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="card-cta-btn" href="tel:+255682647397">Call</a>
+                <a class="card-cta-btn" href="mailto:joelngusulu97@gmail.com?subject=Inquiry%20about%20Environmental%20GIS">Email</a>
+              </div>
             </article>
           </div>
         </div>
@@ -640,7 +685,7 @@
           <div class="cards-grid three-columns">
             <article class="card">
               <h3>Hydrological Studies</h3>
-              <p class="muted">Watershed analysis, runoff estimation, flood and drought modelling, groundwater assessment, and water balance studies.</p>
+              <p class="muted">Watershed analysis, runoff estimation, flood and drought modeling, groundwater assessment, and water balance studies.</p>
             </article>
 
             <article class="card">
@@ -694,4 +739,94 @@
           <p class="eyebrow">Get Started</p>
           <h2>Let's Work Together</h2>
           <p class="muted">
-            Available for contract work, consultancies, technical assessments, and collaborative
+            Available for contract work, consultancies, technical assessments, and collaborative projects in GIS, hydrology, and environmental analysis.
+          </p>
+          
+          <div class="contact-actions">
+            <a class="btn primary" href="https://wa.me/255682647397" target="_blank" rel="noopener noreferrer">WhatsApp Message &rarr;</a>
+            <a class="btn" href="tel:+255682647397">Call: +255 68 264 7397</a>
+          </div>
+
+          <p class="muted" style="margin-top: 32px; font-size: 14px;">
+            Email: <span class="accent">joelngusulu97@gmail.com</span> | LinkedIn: <a href="https://www.linkedin.com/in/yoel-ngusulu-66748a1b6" target="_blank" style="color: #5eead4;">@yoel-ngusulu</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal-overlay" id="contactModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeModalBtn">&times;</button>
+        <h3 style="color: #5eead4; margin-bottom: 8px;">Send Me a Message</h3>
+        <p class="muted" style="font-size: 14px; margin-bottom: 24px;">I'll get back to you within 24 hours.</p>
+        
+        <form id="contactForm" onsubmit="handleContactForm(event)">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="subject">Project Type</label>
+            <input type="text" id="subject" placeholder="e.g., Hydrological Study, GIS Mapping">
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" required placeholder="Tell me about your project..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn primary" style="width: 100%; margin-top: 10px;">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Modal functionality
+      const contactModal = document.getElementById('contactModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+
+      closeModalBtn.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+      });
+
+      contactModal.addEventListener('click', (e) => {
+        if (e.target === contactModal) {
+          contactModal.classList.remove('active');
+        }
+      });
+
+      function handleContactForm(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Construct WhatsApp message
+        const whatsappMessage = `Hello! My name is ${name}. Email: ${email}. Project: ${subject}. Message: ${message}`;
+        const whatsappURL = `https://wa.me/255682647397?text=${encodeURIComponent(whatsappMessage)}`;
+
+        window.open(whatsappURL, '_blank');
+        
+        contactModal.classList.remove('active');
+        document.getElementById('contactForm').reset();
+      }
+
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
