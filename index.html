@@ -961,8 +961,9 @@
             </article>
           </div>
         </div>
-        
-        <section id="contact" class="section">
+      </section>
+
+      <section id="contact" class="section">
         <div class="container center">
           <p class="eyebrow">Contact</p>
           <h2>Let's Work Together</h2>
@@ -998,174 +999,22 @@
             <h3>Quick Links</h3>
             <p><a href="#data-hub">Data Hub</a></p>
             <p><a href="#portfolio">Portfolio</a></p>
-            <p><a href="#about">About</a></p>
             <p><a href="#contact">Contact</a></p>
           </div>
 
           <div class="footer-section">
-            <h3>Contact Details</h3>
-            <p><strong>Location:</strong> Tanzania</p>
-            <p><strong>Phone:</strong> +255 682 647 397</p>
-            <p><strong>Email:</strong> info@hydrogisgis.com</p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/255682647397" target="_blank" rel="noopener noreferrer">+255 682 647 397</a></p>
+            <h3>Services</h3>
+            <p>GIS Analysis</p>
+            <p>Hydrological Studies</p>
+            <p>Remote Sensing</p>
+            <p>Cartography</p>
           </div>
         </div>
 
         <div class="footer-divider">
-          <div class="footer-copyright">
-            &copy; <span>2026</span> Yoeln HdroGIS. All rights reserved.
-          </div>
+          <p class="footer-copyright">© 2025 <span>Yoeln HdroGIS</span>. All rights reserved.</p>
         </div>
       </div>
     </footer>
-
-    <div class="modal-overlay" id="signUpModal" aria-hidden="true">
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button class="close-modal" id="closeModalBtn" type="button" aria-label="Close sign up form">&times;</button>
-        <h3 id="modalTitle" style="color: #5eead4; margin-bottom: 8px;">Create Free Account</h3>
-        <p class="muted" style="font-size: 14px; margin-bottom: 24px;">Register below to unlock the selected geospatial download.</p>
-
-        <form id="signUpForm">
-          <div class="form-group">
-            <label for="username">Full Name</label>
-            <input type="text" id="username" required placeholder="e.g., Yoel Ngusulu" autocomplete="name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" required placeholder="name@company.com" autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label for="profession">Profession / Field</label>
-            <input type="text" id="profession" placeholder="e.g., Hydrologist, GIS Specialist, Student" />
-          </div>
-          <button type="submit" class="btn primary" style="width: 100%; margin-top: 10px;">Complete Registration</button>
-        </form>
-      </div>
-    </div>
-
-    <script>
-      const modal = document.getElementById("signUpModal");
-      const closeModalBtn = document.getElementById("closeModalBtn");
-      const signUpForm = document.getElementById("signUpForm");
-      const downloadButtons = document.querySelectorAll(".download-trigger");
-
-      const datasets = {
-        "Tanzania Geology Data": {
-          downloadUrl: "https://drive.google.com/file/d/1S-Z25hJc9sMjeFBFsov55nhyk-f8dCSs/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/1S-Z25hJc9sMjeFBFsov55nhyk-f8dCSs/view?usp=drive_link"
-        },
-        "Indian Ocean Boundary": {
-          downloadUrl: "https://drive.google.com/file/d/1Iuwz1Px30zMmPDn_fT4XAOH6Bfaz_-6R/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/1Iuwz1Px30zMmPDn_fT4XAOH6Bfaz_-6R/view?usp=drive_link"
-        },
-        "Tanzania Place Data": {
-          downloadUrl: "https://drive.google.com/file/d/1YxBFO6XwKa9_RTP0LcTQLchqGCnrf7hp/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/1YxBFO6XwKa9_RTP0LcTQLchqGCnrf7hp/view?usp=drive_link"
-        },
-        "Tanzania Soil Map": {
-          downloadUrl: "https://drive.google.com/file/d/1Nh45iJASOGHYHixdGctMuXSLbu1Mutlv/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/1Nh45iJASOGHYHixdGctMuXSLbu1Mutlv/view?usp=drive_link"
-        },
-        "Tanzania River Data": {
-          downloadUrl: "https://drive.google.com/file/d/1J0ylVcMWA6lfj2bJ7fT2BekqFeUcnw3x/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/1J0ylVcMWA6lfj2bJ7fT2BekqFeUcnw3x/view?usp=drive_link"
-        },
-        "Tanzania Water Body Data": {
-          downloadUrl: "https://drive.google.com/file/d/18dJSdf7HdYVs_yAWvJ2Dc6Vg2iaDEuvY/view?usp=drive_link",
-          sourceUrl: "https://drive.google.com/file/d/18dJSdf7HdYVs_yAWvJ2Dc6Vg2iaDEuvY/view?usp=drive_link"
-        }
-      };
-
-      let selectedDataset = "";
-      let isUserRegistered = localStorage.getItem("yoelnHdroGISRegistered") === "true";
-
-      function openModal(datasetName) {
-        selectedDataset = datasetName;
-        modal.classList.add("active");
-        modal.setAttribute("aria-hidden", "false");
-        document.getElementById("username").focus();
-      }
-
-      function closeModal() {
-        modal.classList.remove("active");
-        modal.setAttribute("aria-hidden", "true");
-      }
-
-      function markDownloadsReady() {
-        downloadButtons.forEach((button) => {
-          button.textContent = "Download Ready";
-          button.style.borderColor = "#22c55e";
-        });
-      }
-
-      function startDownload(datasetName) {
-        const dataset = datasets[datasetName];
-
-        if (dataset && dataset.downloadUrl) {
-          window.open(dataset.downloadUrl, "_blank", "noopener,noreferrer");
-          return;
-        }
-
-        alert(datasetName + " is not available right now. Please try again later.");
-      }
-
-      if (isUserRegistered) {
-        markDownloadsReady();
-      }
-
-      downloadButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const datasetName = button.dataset.file || "GIS dataset";
-
-          if (!isUserRegistered) {
-            openModal(datasetName);
-            return;
-          }
-
-          startDownload(datasetName);
-        });
-      });
-
-      closeModalBtn.addEventListener("click", closeModal);
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal.classList.contains("active")) {
-          closeModal();
-        }
-      });
-
-      signUpForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const username = document.getElementById("username").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const profession = document.getElementById("profession").value.trim();
-
-        if (!username || !email) {
-          alert("Please fill in all required fields.");
-          return;
-        }
-
-        isUserRegistered = true;
-        localStorage.setItem("yoelnHdroGISRegistered", "true");
-        localStorage.setItem("yoelnHdroGISUserData", JSON.stringify({
-          name: username,
-          email: email,
-          profession: profession,
-          registeredAt: new Date().toISOString()
-        }));
-        closeModal();
-        signUpForm.reset();
-        markDownloadsReady();
-        startDownload(selectedDataset || "GIS dataset");
-        alert("Registration successful! You can now download all datasets.");
-      });
-    </script>
   </body>
 </html>
