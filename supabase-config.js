@@ -1,4 +1,4 @@
 window.HYDROGIS_SUPABASE_CONFIG = {
-  url: 'YOUR_SUPABASE_PROJECT_URL',
-  anonKey: 'YOUR_SUPABASE_ANON_KEY'
+  url: 'https://aqsfocscnkxenqzjytdo.supabase.co',
+  anonKey: 'sb_publishable_Gq3sdDxRZtYVS4yB3jBKJg_3w7Jpsbk'
 };
