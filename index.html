@@ -50,11 +50,12 @@
       .nav {
         width: min(1120px, 100%);
         margin: 0 auto;
-        padding: 14px 24px;
+        padding: 10px 24px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 20px;
+        min-height: 72px;
       }
 
       .brand {
@@ -69,6 +70,8 @@
       .brand img {
         height: 50px;
         width: auto;
+        display: block;
+        flex-shrink: 0;
       }
 
       .brand span {
@@ -673,12 +676,14 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 32px;
+        margin-bottom: 8px;
       }
 
       .footer-logo img {
-        height: 45px;
+        height: 56px;
         width: auto;
+        display: block;
+        flex-shrink: 0;
       }
 
       .footer-logo-text {
@@ -689,6 +694,15 @@
 
       .footer-logo-text span {
         color: #3B82F6;
+      }
+
+      .footer-tagline {
+        margin-bottom: 32px;
+        color: #64748B;
+        font-size: 14px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .footer-content {
@@ -799,6 +813,8 @@
         .nav {
           align-items: flex-start;
           flex-direction: column;
+          min-height: auto;
+          gap: 12px;
         }
 
         .nav-links {
@@ -848,10 +864,10 @@
             <h1><span class="accent">YOEL NGUSULU</span></h1>
              
             <p class="lead"
-            Professional GIS & Hydrology Hub specialising in advanced spatial analysis, hydrological and hydrogeological modelling, remote sensing, and geospatial data solutions. Exploring data-driven solutions for water resource management.
+            >Professional GIS & Hydrology Hub specialising in advanced spatial analysis, hydrological and hydrogeological modelling, remote sensing, and geospatial data solutions. Exploring data-driven innovation through interactive portfolios.
             </p>
             <div class="actions">
-              <a class="btn primary" href="#data-hub">Download GIS Data -&gt;</a>
+              <a class="btn primary" href="#data-hub">Download GIS Data -></a>
               <a class="btn" href="#portfolio">View Portfolio</a>
             </div>
           </div>
@@ -963,10 +979,10 @@
             <p class="eyebrow">About</p>
             <h2>Hydrology & GIS Specialist | Flood Risk, Water Resources & Land Use Modelling</h2>
             <p class="muted">
-              I'm a Hydrology and GIS Specialist based in Tanzania, currently working as a freelance Hydrology Technician with Shilungushela firm. My work sits at the intersection of field data collection and advanced spatial analysis.
+              I'm a Hydrology and GIS Specialist based in Tanzania, currently working as a freelance Hydrology Technician with Shilungushela firm. My work sits at the intersection of field data collection, advanced spatial analysis, and data visualization for decision-making in water resources and environmental management.
             </p>
             <p class="muted">
-              I focus on turning raw spatial and hydrological data into decision-ready outputs: flood risk maps, watershed delineations, runoff models, and land use classifications that support informed water resource management and environmental planning.
+              I focus on turning raw spatial and hydrological data into decision-ready outputs: flood risk maps, watershed delineations, runoff models, and land use classifications that support informed policy and development interventions across Africa.
             </p>
           </div>
 
@@ -998,55 +1014,80 @@
               <div class="map-preview">
                 <img src="topographsurvey.jpg" alt="Topographic survey field work" loading="lazy" />
               </div>
-              <h3>Topographic Survey & Mapping</h3>
-              <p class="muted">Professional surveying and elevation data capture for landscape analysis and infrastructure planning projects.</p>
+              <h3>Topographic Surveys</h3>
+              <p class="muted">Ground-based levelling survey, elevation profiling, and detailed terrain documentation for infrastructure planning.</p>
             </article>
 
             <article class="card">
               <div class="map-preview">
-                <img src="pangani.jpg" alt="Pangani hydrology study" loading="lazy" />
+                <img src="pangani.jpg" alt="Pangani River hydrology case study" loading="lazy" />
               </div>
               <h3>Pangani Hydrology Study</h3>
-              <p class="muted">Comprehensive watershed analysis, runoff modeling, and hydrological assessment for the Pangani River basin.</p>
+              <p class="muted">Hydrological characterization, flow regime assessment, and data-driven watershed analysis for water resources planning.</p>
             </article>
 
             <article class="card">
               <div class="map-preview">
-                <img src="cn.png" alt="Curve Number Hydrology Output" loading="lazy" />
+                <img src="africamap.png" alt="Africa GIS mapping project" loading="lazy" />
               </div>
-              <h3>Curve Number (CN) Runoff Analysis</h3>
-              <p class="muted">Hydrological modeling for runoff estimation and flood risk assessment using SCS Curve Number methodology.</p>
+              <h3>Africa GIS Context Mapping</h3>
+              <p class="muted">Continental-scale GIS analysis, multi-scale spatial interpretation, and thematic mapping for regional planning.</p>
             </article>
 
             <article class="card">
               <div class="map-preview">
-                <img src="lulc.png" alt="Land Use Land Cover mapping" loading="lazy" />
+                <img src="nyarugusu.jpg" alt="Nyarugusu refugee settlement survey" loading="lazy" />
               </div>
-              <h3>Land Use Land Cover (LULC) Mapping</h3>
-              <p class="muted">Remote sensing-based classification for environmental monitoring, land use change detection, and urban planning.</p>
+              <h3>Nyarugusu Field Project</h3>
+              <p class="muted">Settlement-scale geospatial inventory, boundary surveys, and resource mapping for humanitarian infrastructure.</p>
             </article>
 
             <article class="card">
-              <div class="map-preview">
-                <img src="rusle.png" alt="Soil erosion risk mapping" loading="lazy" />
+              <div class="report-preview">
+                <i class="fa-solid fa-file-pdf"></i>
               </div>
-              <h3>Soil Erosion Risk Assessment (RUSLE)</h3>
-              <p class="muted">Spatial analysis of soil erosion vulnerability using the Revised Universal Soil Loss Equation methodology.</p>
+              <h3>GIS Hydrology Reports</h3>
+              <p class="muted">Technical reports, hydrological analysis summaries, and cartographic outputs available for specialized projects.</p>
+              <a class="card-link" href="#">View reports →</a>
             </article>
           </div>
         </div>
       </section>
 
       <section id="contact" class="section">
-        <div class="container center">
-          <p class="eyebrow">Get In Touch</p>
-          <h2>Let's Discuss Your Geospatial & Hydrology Needs</h2>
-          <p class="muted">
-            Whether you need hydrological modeling, GIS mapping, remote sensing analysis, or geospatial data solutions, I'm ready to help. Connect with me to explore how spatial data can support your project goals.
-          </p>
+        <div class="container">
+          <div class="center">
+            <p class="eyebrow">Get in Touch</p>
+            <h2>Ready to Collaborate?</h2>
+            <p class="muted">Interested in GIS solutions, hydrology analysis, or field surveying? Let's discuss your geospatial project needs.</p>
+          </div>
+
+          <div class="modal-overlay" id="contactModal">
+            <div class="modal-content">
+              <button class="close-modal" onclick="document.getElementById('contactModal').classList.remove('active')">&times;</button>
+              <h3>Contact Information</h3>
+              <form>
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Project Subject</label>
+                  <input type="text" id="subject" required />
+                </div>
+              </form>
+              <button type="submit" class="btn primary" style="width: 100%;">Send Message</button>
+            </div>
+          </div>
+
           <div class="contact-actions">
-            <a class="btn primary" href="mailto:joelngusulu97@gmail.com">Email Me</a>
-            <a class="btn" href="#portfolio">View My Work</a>
+            <a class="btn primary" href="mailto:info@example.com">Email</a>
+            <a class="btn" href="#" onclick="document.getElementById('contactModal').classList.add('active'); return false;">Contact Form</a>
+            <a class="btn" href="https://linkedin.com" target="_blank">LinkedIn</a>
           </div>
         </div>
       </section>
@@ -1058,36 +1099,38 @@
           <img src="Logo.png" alt="Portfolio Logo" />
           <div class="footer-logo-text">YOEL <span>NGUSULU</span></div>
         </div>
+        <p class="footer-tagline">GIS | Hydrology | Remote Sensing</p>
 
         <div class="footer-content">
           <div class="footer-section">
             <h3>Services</h3>
-            <p>GIS Mapping & Analysis</p>
-            <p>Hydrological Modeling</p>
-            <p>Remote Sensing & Imagery</p>
-            <p>Geospatial Data Solutions</p>
+            <p><a href="#portfolio">GIS Mapping</a></p>
+            <p><a href="#portfolio">Hydrological Modeling</a></p>
+            <p><a href="#portfolio">Remote Sensing Analysis</a></p>
+            <p><a href="#portfolio">Field Surveying</a></p>
           </div>
 
           <div class="footer-section">
-            <h3>Projects</h3>
-            <p><a href="#portfolio">Portfolio</a></p>
-            <p><a href="#data-hub">Data Hub</a></p>
-            <p><a href="#visuals">Project Visuals</a></p>
+            <h3>Resources</h3>
+            <p><a href="#data-hub">Data Downloads</a></p>
+            <p><a href="#portfolio">Project Portfolio</a></p>
+            <p><a href="#about">About Me</a></p>
+            <p><a href="#contact">Contact</a></p>
           </div>
 
           <div class="footer-section">
             <h3>Connect</h3>
-            <p><a href="mailto:joelngusulu97@gmail.com">Email</a></p>
             <div class="social-links">
-              <a class="social-icon" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              <a class="social-icon" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a class="social-icon" href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a class="social-icon" href="https://linkedin.com" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a class="social-icon" href="https://twitter.com" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a class="social-icon" href="https://github.com" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a class="social-icon" href="mailto:info@example.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
           </div>
         </div>
 
         <div class="footer-divider">
-          <p class="footer-copyright">&copy; 2025 <span>YOEL NGUSULU</span>. All rights reserved.</p>
+          <p class="footer-copyright">&copy; 2024 <span>YOEL NGUSULU</span>. All rights reserved. Designed with precision for geospatial excellence.</p>
         </div>
       </div>
     </footer>
@@ -1095,8 +1138,8 @@
     <script>
       document.querySelectorAll('.download-trigger').forEach(button => {
         button.addEventListener('click', function() {
-          const fileName = this.dataset.file;
-          alert(`Downloading: ${fileName}\n\nPlease create an account to access the full dataset.`);
+          const fileName = this.getAttribute('data-file');
+          alert(`Thank you! "${fileName}" will be available for download after account registration.`);
         });
       });
     </script>
