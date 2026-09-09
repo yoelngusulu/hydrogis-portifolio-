@@ -99,6 +99,41 @@
         color: #3B82F6;
       }
 
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .auth-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .auth-user {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        color: #475569;
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .auth-email {
+        max-width: 180px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .btn.small {
+        min-height: 38px;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
       .section {
         border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         padding: 80px 24px;
@@ -669,6 +704,58 @@
         outline: none;
       }
 
+      .auth-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 22px;
+        border-radius: 8px;
+        background: #F8FAFC;
+        padding: 4px;
+      }
+
+      .auth-tab {
+        flex: 1;
+        min-height: 40px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: #64748B;
+        cursor: pointer;
+        font-weight: 750;
+      }
+
+      .auth-tab.active {
+        background: #FFFFFF;
+        color: #3B82F6;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+      }
+
+      .auth-helper,
+      .auth-message,
+      .download-status {
+        color: #64748B;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .auth-message {
+        min-height: 22px;
+        margin: 14px 0 0;
+      }
+
+      .auth-message.error {
+        color: #DC2626;
+      }
+
+      .auth-message.success,
+      .download-status.success {
+        color: #2563EB;
+      }
+
+      .download-status {
+        margin: 18px 0 0;
+      }
+
       .site-footer {
         border-top: 1px solid rgba(59, 130, 246, 0.1);
         background: #FFFFFF;
@@ -830,6 +917,18 @@
           flex-wrap: wrap;
           gap: 12px;
         }
+
+        .nav-actions {
+          width: 100%;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .auth-actions,
+        .auth-user {
+          width: 100%;
+          flex-wrap: wrap;
+        }
       }
 
       @media (max-width: 520px) {
@@ -844,6 +943,10 @@
         .btn {
           width: 100%;
         }
+
+        .btn.small {
+          width: auto;
+        }
       }
     </style>
   </head>
@@ -854,12 +957,22 @@
           <img src="Logo.png" alt="Portfolio Logo" />
           <span class="yoel">YOEL</span><span class="ngusulu">NGUSULU</span>
         </a>
-        <div class="nav-links">
-          <a href="#data-hub">Data Hub</a>
-          <a href="#visuals">Visuals</a>
-          <a href="#about">About</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact">Contact</a>
+        <div class="nav-actions">
+          <div class="nav-links">
+            <a href="#data-hub">Data Hub</a>
+            <a href="#visuals">Visuals</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="auth-actions" id="authActions">
+            <button class="btn small" type="button" data-auth-open="login">Login</button>
+            <button class="btn primary small" type="button" data-auth-open="register">Register</button>
+          </div>
+          <div class="auth-user" id="authUser" aria-live="polite">
+            <span class="auth-email" id="authEmail"></span>
+            <button class="btn small" type="button" id="logoutButton">Logout</button>
+          </div>
         </div>
       </nav>
     </header>
@@ -928,6 +1041,7 @@
             Download optimized, cleaned GIS datasets ready for mapping tasks and water resource research workflows across Tanzania.
             <span class="accent">Free account registration is required before downloads open.</span>
           </p>
+          <p class="download-status" id="downloadStatus" aria-live="polite"></p>
 
           <div class="cards-grid three-columns">
             <article class="card">
@@ -1097,6 +1211,30 @@
             <a class="btn" href="#" onclick="document.getElementById('contactModal').classList.add('active'); return false;">Contact Form</a>
             <a class="btn" href="https://linkedin.com" target="_blank">LinkedIn</a>
           </div>
+
+          <div class="modal-overlay" id="authModal" aria-hidden="true">
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+              <button class="close-modal" type="button" id="closeAuthModal" aria-label="Close authentication form">&times;</button>
+              <h3 id="authTitle">Access Data Hub</h3>
+              <p class="auth-helper" id="authHelper">Login or create a free account to download GIS datasets.</p>
+              <div class="auth-tabs" role="tablist" aria-label="Authentication options">
+                <button class="auth-tab active" type="button" id="loginTab" data-auth-mode="login">Login</button>
+                <button class="auth-tab" type="button" id="registerTab" data-auth-mode="register">Register</button>
+              </div>
+              <form id="authForm">
+                <div class="form-group">
+                  <label for="authEmailInput">Email Address</label>
+                  <input type="email" id="authEmailInput" autocomplete="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="authPasswordInput">Password</label>
+                  <input type="password" id="authPasswordInput" autocomplete="current-password" minlength="6" required />
+                </div>
+                <button type="submit" class="btn primary" id="authSubmit" style="width: 100%;">Login</button>
+              </form>
+              <p class="auth-message" id="authMessage" aria-live="polite"></p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -1143,13 +1281,194 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
     <script>
+      const authModal = document.getElementById('authModal');
+      const authActions = document.getElementById('authActions');
+      const authUser = document.getElementById('authUser');
+      const authEmail = document.getElementById('authEmail');
+      const authForm = document.getElementById('authForm');
+      const authEmailInput = document.getElementById('authEmailInput');
+      const authPasswordInput = document.getElementById('authPasswordInput');
+      const authSubmit = document.getElementById('authSubmit');
+      const authTitle = document.getElementById('authTitle');
+      const authHelper = document.getElementById('authHelper');
+      const authMessage = document.getElementById('authMessage');
+      const downloadStatus = document.getElementById('downloadStatus');
+      const loginTab = document.getElementById('loginTab');
+      const registerTab = document.getElementById('registerTab');
+      const config = window.HYDROGIS_SUPABASE_CONFIG || {};
+      const supabaseUrl = config.url || '';
+      const supabaseAnonKey = config.anonKey || '';
+      const hasSupabaseConfig = Boolean(
+        window.supabase &&
+        supabaseUrl &&
+        supabaseAnonKey &&
+        !supabaseUrl.includes('YOUR_') &&
+        !supabaseAnonKey.includes('YOUR_')
+      );
+      const supabaseClient = hasSupabaseConfig ? window.supabase.createClient(supabaseUrl, supabaseAnonKey) : null;
+      const protectedDownloads = {
+        'Tanzania Geology Data': '',
+        'Indian Ocean Boundary': '',
+        'Tanzania Place Data': '',
+        'Tanzania Soil Map': '',
+        'Tanzania River Data': '',
+        'Tanzania Water Body Data': ''
+      };
+      let currentUser = null;
+      let authMode = 'login';
+      let pendingDownload = '';
+
+      function setAuthMode(mode) {
+        authMode = mode;
+        const isLogin = mode === 'login';
+        loginTab.classList.toggle('active', isLogin);
+        registerTab.classList.toggle('active', !isLogin);
+        authTitle.textContent = isLogin ? 'Login to Data Hub' : 'Create Data Hub Account';
+        authHelper.textContent = pendingDownload
+          ? `${isLogin ? 'Login' : 'Register'} to access ${pendingDownload}.`
+          : `${isLogin ? 'Login' : 'Create a free account'} to download GIS datasets.`;
+        authSubmit.textContent = isLogin ? 'Login' : 'Register';
+        authPasswordInput.autocomplete = isLogin ? 'current-password' : 'new-password';
+        authMessage.textContent = hasSupabaseConfig ? '' : 'Supabase is not configured yet. Add your public URL and anon key in supabase-config.js.';
+        authMessage.className = hasSupabaseConfig ? 'auth-message' : 'auth-message error';
+      }
+
+      function openAuthModal(mode = 'login', fileName = '') {
+        pendingDownload = fileName;
+        setAuthMode(mode);
+        authModal.classList.add('active');
+        authModal.setAttribute('aria-hidden', 'false');
+        setTimeout(() => authEmailInput.focus(), 50);
+      }
+
+      function closeAuthModal() {
+        authModal.classList.remove('active');
+        authModal.setAttribute('aria-hidden', 'true');
+        authForm.reset();
+        pendingDownload = '';
+      }
+
+      function updateAccountState(user) {
+        currentUser = user;
+        if (user) {
+          authActions.style.display = 'none';
+          authUser.style.display = 'flex';
+          authEmail.textContent = user.email || 'Signed in';
+          downloadStatus.textContent = `Signed in as ${user.email}. Data downloads are ready for protected links when connected.`;
+          downloadStatus.className = 'download-status success';
+        } else {
+          authActions.style.display = 'flex';
+          authUser.style.display = 'none';
+          authEmail.textContent = '';
+          downloadStatus.textContent = '';
+          downloadStatus.className = 'download-status';
+        }
+      }
+
+      async function initializeAuth() {
+        if (!supabaseClient) {
+          updateAccountState(null);
+          return;
+        }
+
+        const { data } = await supabaseClient.auth.getSession();
+        updateAccountState(data.session?.user || null);
+
+        supabaseClient.auth.onAuthStateChange((_event, session) => {
+          updateAccountState(session?.user || null);
+        });
+      }
+
+      document.querySelectorAll('[data-auth-open]').forEach(button => {
+        button.addEventListener('click', () => openAuthModal(button.dataset.authOpen));
+      });
+
+      document.querySelectorAll('[data-auth-mode]').forEach(button => {
+        button.addEventListener('click', () => setAuthMode(button.dataset.authMode));
+      });
+
+      document.getElementById('closeAuthModal').addEventListener('click', closeAuthModal);
+
+      authModal.addEventListener('click', event => {
+        if (event.target === authModal) {
+          closeAuthModal();
+        }
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && authModal.classList.contains('active')) {
+          closeAuthModal();
+        }
+      });
+
+      authForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!supabaseClient) {
+          setAuthMode(authMode);
+          return;
+        }
+
+        authSubmit.disabled = true;
+        authSubmit.textContent = authMode === 'login' ? 'Logging in...' : 'Creating account...';
+        authMessage.textContent = '';
+        authMessage.className = 'auth-message';
+
+        const email = authEmailInput.value.trim();
+        const password = authPasswordInput.value;
+        const response = authMode === 'login'
+          ? await supabaseClient.auth.signInWithPassword({ email, password })
+          : await supabaseClient.auth.signUp({ email, password });
+
+        authSubmit.disabled = false;
+        authSubmit.textContent = authMode === 'login' ? 'Login' : 'Register';
+
+        if (response.error) {
+          authMessage.textContent = response.error.message;
+          authMessage.className = 'auth-message error';
+          return;
+        }
+
+        authMessage.textContent = authMode === 'login'
+          ? 'You are logged in. Downloads are now available when protected links are connected.'
+          : 'Account created. Check your email if confirmation is enabled in Supabase.';
+        authMessage.className = 'auth-message success';
+
+        if (response.data.user) {
+          updateAccountState(response.data.user);
+          setTimeout(closeAuthModal, 900);
+        }
+      });
+
+      document.getElementById('logoutButton').addEventListener('click', async () => {
+        if (supabaseClient) {
+          await supabaseClient.auth.signOut();
+        }
+        updateAccountState(null);
+      });
+
       document.querySelectorAll('.download-trigger').forEach(button => {
         button.addEventListener('click', function() {
           const fileName = this.getAttribute('data-file');
-          alert(`Thank you! "${fileName}" will be available for download after account registration.`);
+          if (!currentUser) {
+            openAuthModal('login', fileName);
+            return;
+          }
+
+          const downloadUrl = this.dataset.downloadUrl || protectedDownloads[fileName];
+          if (downloadUrl) {
+            window.location.href = downloadUrl;
+            return;
+          }
+
+          downloadStatus.textContent = `${fileName} access confirmed for ${currentUser.email}. Add the protected file URL later through the download map in this page script.`;
+          downloadStatus.className = 'download-status success';
         });
       });
+
+      initializeAuth();
     </script>
   </body>
 </html>
