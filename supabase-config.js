@@ -3,6 +3,8 @@ window.HYDROGIS_SUPABASE_CONFIG = {
   anonKey: 'sb_publishable_Gq3sdDxRZtYVS4yB3jBKJg_3w7Jpsbk'
 };
 
+window.HYDROGIS_DATA_FOLDER_URL = 'https://drive.google.com/drive/folders/1HospYrsK7eNybsFkqU32U6NAjeblpTM1?usp=drive_link';
+
 (() => {
   function replaceText(node, replacements) {
     if (!node) return;
@@ -36,7 +38,7 @@ window.HYDROGIS_SUPABASE_CONFIG = {
     if (downloadStatus) {
       replaceText(downloadStatus, [
         ['Data downloads are ready for protected links when connected.', 'You can now request Data Hub access.'],
-        ['Add the protected file URL later through the download map in this page script.', 'Please use the contact section to receive the correct access link.']
+        ['Add the protected file URL later through the download map in this page script.', 'Your data folder will open after access is confirmed.']
       ]);
     }
 
@@ -93,9 +95,11 @@ window.HYDROGIS_SUPABASE_CONFIG = {
 
     const downloadStatus = document.getElementById('downloadStatus');
     if (downloadStatus) {
-      downloadStatus.textContent = `${fileName} access request is ready for ${user.email}. Please use the contact section to receive the correct access link.`;
+      downloadStatus.textContent = `${fileName} access confirmed for ${user.email}. Opening the Data Hub folder now.`;
       downloadStatus.className = 'download-status success';
     }
+
+    window.open(window.HYDROGIS_DATA_FOLDER_URL, '_blank', 'noopener');
   }, true);
 
   window.addEventListener('load', applyRequestAccessCopy);
