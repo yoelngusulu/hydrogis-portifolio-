@@ -74,7 +74,7 @@
       }
 
       .brand span {
-        font-size: clamp(16px, 2vw, 20px);
+        font-size: clamp(18px, 2vw, 22px);
         display: inline;
       }
 
@@ -83,7 +83,7 @@
       }
 
       .brand span.ngusulu {
-        color: #111827;
+        color: #0F172A;
       }
 
       .nav-links {
@@ -307,99 +307,66 @@
       }
 
       .visual-carousel h2 {
-        margin-bottom: 0;
+        margin-bottom: 12px;
         font-size: clamp(24px, 3vw, 34px);
       }
 
+      .visual-intro {
+        max-width: 680px;
+        margin-bottom: 0;
+        color: #64748B;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
       .visual-track-wrapper {
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(180deg, rgba(59, 130, 246, 0.02) 0%, rgba(59, 130, 246, 0.01) 100%);
-        border-radius: 16px;
-        border: 1px solid rgba(59, 130, 246, 0.08);
-        padding: 20px 0;
-        backdrop-filter: blur(6px);
+        width: min(1120px, 100%);
+        margin: 0 auto;
       }
 
       .visual-track {
-        display: flex;
-        width: max-content;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
-        padding: 0 20px;
-        animation: slideLeft 36s linear infinite;
-      }
-
-      .visual-carousel:hover .visual-track {
-        animation-play-state: paused;
       }
 
       .visual-card {
-        position: relative;
         display: block;
-        width: min(280px, 70vw);
-        aspect-ratio: 16 / 10;
         overflow: hidden;
-        border: 1px solid rgba(59, 130, 246, 0.15);
-        border-radius: 16px;
-        background: #F8FAFC;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-        transition: all 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
-        flex-shrink: 0;
+        border: 1px solid rgba(59, 130, 246, 0.14);
+        border-radius: 12px;
+        background: #FFFFFF;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+        transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
       }
 
       .visual-card img {
+        display: block;
         width: 100%;
-        height: 100%;
+        aspect-ratio: 16 / 10;
         object-fit: cover;
-        transition: transform 320ms ease, filter 320ms ease;
-        filter: brightness(0.98) contrast(1.02);
-      }
-
-      .visual-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(59, 130, 246, 0.1));
-        z-index: 1;
+        transition: transform 220ms ease;
       }
 
       .visual-card span {
-        position: absolute;
-        left: 16px;
-        right: 16px;
-        bottom: 14px;
-        z-index: 2;
-        color: #111827;
+        display: block;
+        padding: 12px 14px 14px;
+        color: #0F172A;
+        font-size: 13px;
         font-weight: 800;
-        line-height: 1.25;
-        font-size: 12px;
-        letter-spacing: 0.05em;
+        line-height: 1.35;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
-        backdrop-filter: blur(8px);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 8px 12px;
-        border-radius: 8px;
-        border: 1px solid rgba(59, 130, 246, 0.2);
       }
 
       .visual-card:hover {
-        border-color: rgba(59, 130, 246, 0.5);
-        box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
-        transform: translateY(-8px) scale(1.02);
+        border-color: rgba(59, 130, 246, 0.36);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+        transform: translateY(-3px);
       }
 
       .visual-card:hover img {
-        filter: brightness(1.02) contrast(1.05) saturate(1.05);
-        transform: scale(1.08);
-      }
-
-      @keyframes slideLeft {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(calc(-50% - 10px));
-        }
+        transform: scale(1.03);
       }
 
       .image-slider {
@@ -695,13 +662,17 @@
       }
 
       .footer-logo-text {
-        color: #111827;
+        font-size: clamp(18px, 2vw, 20px);
         font-weight: 800;
         letter-spacing: 0.02em;
       }
 
-      .footer-logo-text span {
+      .footer-logo-text .yoel {
         color: #3B82F6;
+      }
+
+      .footer-logo-text .ngusulu {
+        color: #0F172A;
       }
 
       .footer-tagline {
@@ -817,6 +788,12 @@
 
       }
 
+      @media (max-width: 900px) {
+        .visual-track {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
       @media (max-width: 640px) {
         .nav {
           align-items: flex-start;
@@ -829,6 +806,10 @@
           width: 100%;
           flex-wrap: wrap;
           gap: 12px;
+        }
+
+        .visual-track {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -897,17 +878,10 @@
         <div class="container">
           <p class="eyebrow">Project Visuals</p>
           <h2>Fieldwork, Maps & Hydrology Outputs</h2>
+          <p class="visual-intro">A curated view of field documentation, GIS analysis, and hydrology outputs from practical project workflows.</p>
         </div>
         <div class="visual-track-wrapper">
-          <div class="visual-track" aria-label="Project image slider">
-            <a class="visual-card" href="#portfolio"><img src="pangani.jpg" alt="Pangani hydrology field work" loading="lazy" /><span>Pangani Hydrology Study</span></a>
-            <a class="visual-card" href="#portfolio"><img src="africamap.png" alt="Africa GIS map" loading="lazy" /><span>Africa GIS Context</span></a>
-            <a class="visual-card" href="#portfolio"><img src="cn.png" alt="Curve number hydrology output" loading="lazy" /><span>CN Runoff Analysis</span></a>
-            <a class="visual-card" href="#portfolio"><img src="mtendeli.jpeg" alt="Mtendeli field mapping" loading="lazy" /><span>Mtendeli Field Mapping</span></a>
-            <a class="visual-card" href="#portfolio"><img src="topographsurvey.jpg" alt="Topographic survey" loading="lazy" /><span>Topographic Surveys</span></a>
-            <a class="visual-card" href="#portfolio"><img src="nyarugusu.jpg" alt="Nyarugusu field project" loading="lazy" /><span>Nyarugusu Field Project</span></a>
-            <a class="visual-card" href="#data-hub"><img src="rusle.png" alt="RUSLE map output" loading="lazy" /><span>RUSLE GIS Output</span></a>
-            <a class="visual-card" href="#portfolio"><img src="lulc.png" alt="LULC map output" loading="lazy" /><span>LULC Mapping Output</span></a>
+          <div class="visual-track" aria-label="Project image gallery">
             <a class="visual-card" href="#portfolio"><img src="pangani.jpg" alt="Pangani hydrology field work" loading="lazy" /><span>Pangani Hydrology Study</span></a>
             <a class="visual-card" href="#portfolio"><img src="africamap.png" alt="Africa GIS map" loading="lazy" /><span>Africa GIS Context</span></a>
             <a class="visual-card" href="#portfolio"><img src="cn.png" alt="Curve number hydrology output" loading="lazy" /><span>CN Runoff Analysis</span></a>
@@ -1105,7 +1079,7 @@
       <div class="footer-container">
         <div class="footer-logo">
           <img src="Logo.png" alt="Portfolio Logo" />
-          <div class="footer-logo-text">YOEL <span>NGUSULU</span></div>
+          <div class="footer-logo-text"><span class="yoel">YOEL</span> <span class="ngusulu">NGUSULU</span></div>
         </div>
         <p class="footer-tagline">GIS | Hydrology | Remote Sensing</p>
 
